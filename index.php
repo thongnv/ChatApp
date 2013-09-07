@@ -2,6 +2,7 @@
 <html>
 
 	<head>
+		<link type='text/css' rel='stylesheet' href='StyleIndex.css'>
 		<script type="text/javascript" src="Js/jquery.js"></script>
 		<title>Welcome to Chat App</title>
 		<script type='text/javascript'>
