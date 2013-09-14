@@ -9,9 +9,10 @@
 		$user->UserLogin();
 
 		if($user->UserLogin()){
-			$_SESSION['UserId'] = $user->getUserId();
+			$userid = $_SESSION['UserId'] = $user->getUserId();
 			$_SESSION['UserName'] = $user->getUserName();
 			$_SESSION['UserMail'] = $user->getUserMail();
+			header("Location: home.php?userid=$userid");
 		}
 	}
 

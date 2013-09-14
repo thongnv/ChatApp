@@ -2,7 +2,7 @@
 <html>
 
 	<head>
-		<link type='text/css' rel='stylesheet' href='StyleIndex.css'>
+		<link type='text/css' rel='stylesheet' href='Style/StyleIndex.css'>
 		<script type="text/javascript" src="Js/jquery.js"></script>
 		<title>Welcome to Chat App</title>
 		<script type='text/javascript'>
@@ -26,20 +26,21 @@
 
 	<body>
 		<div id="login">
-			<h2 id='login'>LOGIN FORM</h2>
 			<form method="post" action="pages/UserLogin.php" >
+				<h2 id='login'>LOGIN TO CHAT</h2>
+				<div id='line1' class='line horizontal'></div>
 				<table>
 					<tr>
-						<td>Email: </td><td><input type="email" name="UserMailLogin"></td>
+						<td>Email: </td><td><input class='inputtext' type="email" name="UserMailLogin"></td>
 					</tr>
 					<tr>
-						<td>Password: </td><td><input type="password" name="UserPasswordLogin" /></td>
+						<td>Password: </td><td><input class='inputpassword' type="password" name="UserPasswordLogin" /></td>
 					</tr>
 					<tr>
-						<td></td><td><input type="submit" value="LOG IN" </td>
+						<td></td><td><input class='submit' type="submit" value="LOG IN" </td>
 					</tr>
 					<tr>
-						<td></td><td id="NewAcc"><a href="javascript:void()">Create New Account</td>
+						<td></td><td id="NewAcc">or <a href="javascript:void()">Create New Account</td>
 					</tr>
 					<?php
 					if(isset($_GET['error'])){?>
@@ -52,23 +53,24 @@
 		</div>
 
 		<div id='signup'>
-		<h2>SIGNUP FORM</h2>
 		<form method="post" action="pages/InsertUser.php" >
+			<h2>SIGN UP</h2>
+			<div id='line1' class='line horizontal'></div>
 			<table>
 				<tr>
-					<td>Your Name: </td><td><input type="text" name="UserName" /></td>
+					<td><input class='inputtext' type="text" name="UserName" placeholder='Your Name' /></td>
 				</tr>
 				<tr>
-					<td>Your Email: </td><td><input type="email" name="UserMail" /></td>
+					<td><input class='inputtext' type="email" name="UserMail" placeholder='Your Email' /></td>
 				</tr>
 				<tr>
-					<td>Password: </td><td><input type="password" name="UserPassword" /></td>
+					<td><input class='inputpassword' type="password" name="UserPassword" placeholder='New Password' /></td>
 				</tr>
 				<tr>
-					<td></td><td><input type="submit" value="Sign Up" /></td>
+					<td><input class='submit' type="submit" value="Sign Up" /></td>
 				</tr>
 				<tr>
-					<td></td><td><a href="javascript:void()" id="AlreadyHave" />Already Have An Account</td>
+					<td><a href="javascript:void()" id="AlreadyHave" />Already Have An Account</td>
 				</tr>
 				<?php
 				if(isset($_GET['success'])){?>

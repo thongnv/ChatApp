@@ -55,7 +55,6 @@ class user{
 				$this->setUserName($data['UserName']);
 				$this->setUserPassword($data['UserPassword']);
 				$this->setUserMail($data['UserMail']);
-				header("Location: Home.php");
 			}
 			return true;
 		}
@@ -106,7 +105,7 @@ class chat {
 			?>
 			<span class="UserNameS"><?php echo $DataUser['UserName']; ?></span> says:</br>
 			<span class="ChatMessageS"><?php echo $DataChat['ChatText']; ?></span></br>
-			<script type="text/javascript">$("#ChatMessage").prop({ scrollTop: $("#ChatMessageS").prop("scrollHeight") });</script>
+			<script type="text/javascript">$('#ChatMessage').setScrollTop($('#ChatMessage').getScrollHeight);</script>
 			<?php
 		}
 	}

@@ -1,5 +1,5 @@
 <?php
-session_start();
+	session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,6 +11,8 @@ session_start();
 	$(document).ready(function(){
 
 		$("#ChatText").keyup(function(e){
+			if(e.keyCode != 13 || e.shiftKey || e.ctrlKey || e.altKey || e.metaKey)
+    			return;
 			//when we press enter do
 			if(e.keyCode == 13){
 				var ChatText = $('#ChatText').val();
@@ -21,7 +23,7 @@ session_start();
 					success: function(){
 						$("#ChatMessage").load("DisplayMessages.php");
 						$("#ChatText").val("");
-						$('#ChatMessage').scrollTop($('#ChatMessage').scrollHeight);
+						$('#ChatMessage').scrollTop = $('#ChatMessage').scrollHeight;
 					}
 				});
 			}
@@ -38,7 +40,7 @@ session_start();
 	</script>
 </head>
 <body>
-	<h2>Welcome <span style="color:green"><?php echo $_SESSION['UserName'] ?></span></h2>
+	<h2>Welcome <span style="color:green"><?php echo $_SESSION['UserName'] ?><a id='logout' href='UserLogout.php' >Log Out</a></span></h2>
 	</br></br>
 
 	<div id="ChatBig">
