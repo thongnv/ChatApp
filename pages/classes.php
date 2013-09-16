@@ -93,19 +93,16 @@ class chat {
 
 	public function DisplayMessage(){
 		include "conn.php";
-		$ChatReq = $bdd->prepare("SELECT * FROM chats ORDER BY ChatId ASC");
+		$ChatReq = $bdd->prepare("SELECT * FROM chats WHERE ChatText > '' ORDER BY ChatId ASC");
 		$ChatReq->execute();
-
+		$username;
 		while ($DataChat = $ChatReq->fetch()) {
 			$UserReq = $bdd->prepare("SELECT * FROM users WHERE UserId = :UserId");
-			$UserReq->execute(array(
-				'UserId'=>$DataChat['ChatUserId']
-				));
+			$UserReq->execute(array('UserId'=>$DataChat['ChatUserId']));
 			$DataUser = $UserReq->fetch();
 			?>
-			<span class="UserNameS"><?php echo $DataUser['UserName']; ?></span> says:</br>
+			<span class="UserNameS"><?php echo $DataUser['UserName']; ?></span>:
 			<span class="ChatMessageS"><?php echo $DataChat['ChatText']; ?></span></br>
-			<script type="text/javascript">$('#ChatMessage').setScrollTop($('#ChatMessage').getScrollHeight);</script>
 			<?php
 		}
 	}

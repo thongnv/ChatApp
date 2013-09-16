@@ -11,28 +11,29 @@
 	$(document).ready(function(){
 
 		$("#ChatText").keyup(function(e){
-			if(e.keyCode != 13 || e.shiftKey || e.ctrlKey || e.altKey || e.metaKey)
-    			return;
 			//when we press enter do
 			if(e.keyCode == 13){
-				var ChatText = $('#ChatText').val();
-				$.ajax({
-					type: 'POST',
-					url: 'InsertMessage.php',
-					data: {ChatText: ChatText},
-					success: function(){
-						$("#ChatMessage").load("DisplayMessages.php");
-						$("#ChatText").val("");
-						$('#ChatMessage').scrollTop = $('#ChatMessage').scrollHeight;
-					}
-				});
+				e.preventDefault();
+				if( $('#ChatText').val().length > 0){
+					var ChatValue = $('#ChatText').val();
+					$.ajax({
+						type: 'POST',
+						url: 'InsertMessage.php',
+						data: {ChatText: ChatValue},
+						success: function(){
+							$("#ChatMessage").load("DisplayMessages.php");
+							$("#ChatText").val("");
+							$('#ChatMessage').scrollTop = $('#ChatMessage').scrollHeight;
+						}
+					});
+				}
 			}
 		});
 
 		setInterval(function(){//refresh every 3000ms
 			$("#ChatMessage").load("DisplayMessages.php");
 			$('#ChatMessage').scrollTop($('#ChatMessage')[0].scrollHeight);
-		},3000);
+		}, 5000);
 
 		$("#ChatMessage").load("DisplayMessages.php");
 		//$("#ChatMessage").scrollTop = $("#ChatMessage").scrollHeight;
