@@ -48,6 +48,7 @@
 	<div id="ChatMessage"></div>
 	<div id="ChatBar"></div>
 	<textarea id="ChatText" name="ChatText"></textarea>
+	<input type='submit' name='ChatText' value='SEND'></input>
 	</div>
 
 </body>
