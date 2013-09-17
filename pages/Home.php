@@ -41,7 +41,7 @@
 	</script>
 </head>
 <body>
-	<h2>Welcome <span style="color:green"><?php echo $_SESSION['UserName'] ?><a id='logout' href='UserLogout.php' >Log Out</a></span></h2>
+	<h2>Welcome <span style="color:white"><?php echo $_SESSION['UserName'] ?> !<a id='logout' href='UserLogout.php' >Log Out</a></span></h2>
 	</br></br>
 
 	<div id="ChatBig">
