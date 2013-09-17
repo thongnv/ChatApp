@@ -14,7 +14,7 @@ a:hover, a:visited, a:link, a:active{text-decoration: none;}
 
 #ChatText:focus{outline: auto;}
 
-.UserNameS{font-weight: normal; color: #888888;}
+.UserNameS{font-weight: bold; font-family: arial; font-size: small; color: #888888;}
 
 .UserNameS:hover{text-decoration: underline; cursor: pointer;}
 
